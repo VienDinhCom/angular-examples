@@ -9,3 +9,12 @@
     {{ product.name }}
   </li>
 </ul>
+
+<br />
+
+<app-pagination
+  [totalPages]="totalPages"
+  (change)="navigateToPageNumber($event)"
+></app-pagination>
+
+<br /><br />

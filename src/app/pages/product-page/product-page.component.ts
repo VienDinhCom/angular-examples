@@ -11,8 +11,10 @@ export class ProductPageComponent implements OnInit {
   product: Product;
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+    const productID = this.activatedRoute.snapshot.params["id"];
+
     const product = productsData.find(({ id }) => {
-      return id === parseInt(this.activatedRoute.snapshot.params["id"]);
+      return id === productID;
     });
 
     if (product) {

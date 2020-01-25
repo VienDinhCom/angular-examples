@@ -10,6 +10,7 @@ import { HomePageComponent } from "./pages/home-page/home-page.component";
 import { ErrorPageComponent } from "./pages/error-page/error-page.component";
 import { ProductsPageComponent } from "./pages/products-page/products-page.component";
 import { ProductPageComponent } from "./pages/product-page/product-page.component";
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ProductPageComponent } from "./pages/product-page/product-page.componen
     HomePageComponent,
     ErrorPageComponent,
     ProductsPageComponent,
-    ProductPageComponent
+    ProductPageComponent,
+    PaginationComponent
   ],
   imports: [BrowserModule, AppRoutingModule, RouterModule.forRoot(appRoutes)],
   providers: [],
