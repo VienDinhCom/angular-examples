@@ -14,7 +14,7 @@ export class ProductsPageComponent implements OnInit {
 
   ngOnInit() {}
 
-  navigateToProductPage(productId: number) {
-    this.router.navigate([`/products/${productId}`]);
-  }
+  // navigateToProductPage(productId: number) {
+  //   this.router.navigate([`/products/${productId}`]);
+  // }
 }
