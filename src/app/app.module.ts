@@ -8,9 +8,10 @@ import { AboutPageComponent } from "./pages/about-page/about-page.component";
 import { RouterModule } from "@angular/router";
 import { appRoutes } from "./app.routes";
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
+import { ErrorPageComponent } from './pages/error-page/error-page.component';
 
 @NgModule({
-  declarations: [AppComponent, HomePageComponent, AboutPageComponent, ContactPageComponent],
+  declarations: [AppComponent, HomePageComponent, AboutPageComponent, ContactPageComponent, ErrorPageComponent],
   imports: [BrowserModule, AppRoutingModule, RouterModule.forRoot(appRoutes)],
   providers: [],
   bootstrap: [AppComponent]
