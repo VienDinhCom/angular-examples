@@ -1,0 +1,11 @@
+<p>products-page works!</p>
+
+<ul class="list-group">
+  <li
+    *ngFor="let product of products"
+    class="list-group-item"
+    (click)="navigateToProductPage(product.id)"
+  >
+    {{ product.name }}
+  </li>
+</ul>
