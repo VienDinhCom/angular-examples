@@ -33,11 +33,11 @@ export class ProductsPageComponent implements OnInit {
       });
   }
 
-  navigateToPageNumber(pageNumber: number) {
-    this.router.navigate([`/products`], {
-      queryParams: {
-        pageNumber
-      }
-    });
-  }
+  // navigateToPageNumber(pageNumber: number) {
+  //   this.router.navigate([`/products`], {
+  //     queryParams: {
+  //       pageNumber
+  //     }
+  //   });
+  // }
 }

@@ -1,11 +1,12 @@
 <nav aria-label="Page navigation example">
   <ul class="pagination">
-    <li
-      *ngFor="let pageNumber of pageNumbers"
-      (click)="emitCurrentPage(pageNumber)"
-      class="page-item"
-    >
-      <a class="page-link">{{ pageNumber }}</a>
+    <li *ngFor="let pageNumber of pageNumbers" class="page-item">
+      <a
+        class="page-link"
+        [routerLink]="link"
+        [queryParams]="{ pageNumber: pageNumber }"
+        >{{ pageNumber }}</a
+      >
     </li>
   </ul>
 </nav>
