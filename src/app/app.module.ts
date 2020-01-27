@@ -5,7 +5,6 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HomePageComponent } from "./pages/home-page/home-page.component";
 import { ErrorPageComponent } from "./pages/error-page/error-page.component";
-import { AboutPageComponent } from "./pages/about-page/about-page.component";
 import { appRoutes } from "./app.routes";
 import { RouterModule } from "@angular/router";
 import { AuthGuard } from "./guards/auth.guard";
@@ -22,7 +21,6 @@ import { LeavePageComponent } from "./pages/leave-page/leave-page.component";
     AppComponent,
     HomePageComponent,
     ErrorPageComponent,
-    AboutPageComponent,
     DashboardPageComponent,
     ParentPageComponent,
     ChildPageComponent,
