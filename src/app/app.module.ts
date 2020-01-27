@@ -8,16 +8,21 @@ import { ErrorPageComponent } from "./pages/error-page/error-page.component";
 import { AboutPageComponent } from "./pages/about-page/about-page.component";
 import { appRoutes } from "./app.routes";
 import { RouterModule } from "@angular/router";
+import { AuthGuard } from "./auth/auth.guard";
+import { AuthService } from "./auth/auth.service";
+
+import { DashboardPageComponent } from "./pages/dashboard-page/dashboard-page.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     ErrorPageComponent,
-    AboutPageComponent
+    AboutPageComponent,
+    DashboardPageComponent
   ],
   imports: [BrowserModule, AppRoutingModule, RouterModule.forRoot(appRoutes)],
-  providers: [],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
