@@ -13,6 +13,7 @@ import { AuthService } from "./auth.service";
 export class AuthGuard implements CanActivate, CanActivateChild {
   constructor(private authService: AuthService, private router: Router) {}
 
+  // Kiểm tra route hiện tại
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -28,6 +29,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     });
   }
 
+  // Không kiểm tra route hiện tại mà chỉ kiểm ra các route con của route hiện tại
   canActivateChild(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
