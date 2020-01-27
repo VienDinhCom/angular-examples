@@ -12,6 +12,8 @@ import { AuthGuard } from "./auth/auth.guard";
 import { AuthService } from "./auth/auth.service";
 
 import { DashboardPageComponent } from "./pages/dashboard-page/dashboard-page.component";
+import { ParentPageComponent } from './pages/parent-page/parent-page.component';
+import { ChildPageComponent } from './pages/child-page/child-page.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { DashboardPageComponent } from "./pages/dashboard-page/dashboard-page.co
     HomePageComponent,
     ErrorPageComponent,
     AboutPageComponent,
-    DashboardPageComponent
+    DashboardPageComponent,
+    ParentPageComponent,
+    ChildPageComponent
   ],
   imports: [BrowserModule, AppRoutingModule, RouterModule.forRoot(appRoutes)],
   providers: [AuthService, AuthGuard],
