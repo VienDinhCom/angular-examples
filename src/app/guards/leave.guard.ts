@@ -8,6 +8,7 @@ export interface CanComponentDeactivate {
 
 @Injectable()
 export class LeaveGuard implements CanDeactivate<CanComponentDeactivate> {
+  //  Có cho ra hay không?
   canDeactivate(component: CanComponentDeactivate) {
     if (component.canLeave) {
       const message = component.canLeave();
