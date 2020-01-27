@@ -7,13 +7,13 @@ import {
   CanActivateChild
 } from "@angular/router";
 import { Observable } from "rxjs";
-import { AuthService } from "./auth.service";
+import { AuthService } from "../services/auth.service";
 
 @Injectable()
 export class AuthGuard implements CanActivate, CanActivateChild {
   constructor(private authService: AuthService, private router: Router) {}
 
-  // Kiểm tra route hiện tại
+  // Có cho vào route hay không?
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -29,7 +29,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     });
   }
 
-  // Không kiểm tra route hiện tại mà chỉ kiểm ra các route con của route hiện tại
+  // Cho cho vào các route con hay không?
   canActivateChild(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot

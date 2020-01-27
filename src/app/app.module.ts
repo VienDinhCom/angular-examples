@@ -8,12 +8,14 @@ import { ErrorPageComponent } from "./pages/error-page/error-page.component";
 import { AboutPageComponent } from "./pages/about-page/about-page.component";
 import { appRoutes } from "./app.routes";
 import { RouterModule } from "@angular/router";
-import { AuthGuard } from "./auth/auth.guard";
-import { AuthService } from "./auth/auth.service";
+import { AuthGuard } from "./guards/auth.guard";
+import { LeaveGuard } from "./guards/leave.guard";
+import { AuthService } from "./services/auth.service";
 
 import { DashboardPageComponent } from "./pages/dashboard-page/dashboard-page.component";
-import { ParentPageComponent } from './pages/parent-page/parent-page.component';
-import { ChildPageComponent } from './pages/child-page/child-page.component';
+import { ParentPageComponent } from "./pages/parent-page/parent-page.component";
+import { ChildPageComponent } from "./pages/child-page/child-page.component";
+import { LeavePageComponent } from "./pages/leave-page/leave-page.component";
 
 @NgModule({
   declarations: [
@@ -23,10 +25,11 @@ import { ChildPageComponent } from './pages/child-page/child-page.component';
     AboutPageComponent,
     DashboardPageComponent,
     ParentPageComponent,
-    ChildPageComponent
+    ChildPageComponent,
+    LeavePageComponent
   ],
   imports: [BrowserModule, AppRoutingModule, RouterModule.forRoot(appRoutes)],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthService, LeaveGuard, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
