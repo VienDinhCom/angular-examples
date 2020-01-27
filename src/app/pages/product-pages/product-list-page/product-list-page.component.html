@@ -4,6 +4,7 @@
       <li
         *ngFor="let product of products"
         [routerLink]="[product.id]"
+        routerLinkActive="active"
         class="list-group-item"
       >
         {{ product.name }}
