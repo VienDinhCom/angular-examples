@@ -8,16 +8,19 @@ import { ErrorPageComponent } from "./pages/error-page/error-page.component";
 import { AboutPageComponent } from "./pages/about-page/about-page.component";
 import { appRoutes } from "./app.routes";
 import { RouterModule } from "@angular/router";
+import { ProductListPageComponent } from "./pages/product-list-page/product-list-page.component";
+import { ProductsResolver } from "./resolvers/products.resolver";
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     ErrorPageComponent,
-    AboutPageComponent
+    AboutPageComponent,
+    ProductListPageComponent
   ],
   imports: [BrowserModule, AppRoutingModule, RouterModule.forRoot(appRoutes)],
-  providers: [],
+  providers: [ProductsResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
