@@ -26,8 +26,10 @@ export class ContactPageComponent implements OnInit {
   }
 
   onSubmit(formRef: NgForm) {
-    // console.log(formRef);
+    // console.log(formRef.value);
+
     console.log(this.formRef.value);
+
     this.formRef.reset();
   }
 }
