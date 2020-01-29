@@ -22,6 +22,9 @@ export class ContactPageComponent implements OnInit {
     });
 
     this.contactForm.valueChanges.subscribe(console.log);
+
+    // For Validation
+    this.contactForm.statusChanges.subscribe(console.log);
   }
 
   get issuesFormArray() {
