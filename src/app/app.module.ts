@@ -1,7 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 
-import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HomePageComponent } from "./pages/home-page/home-page.component";
 import { ErrorPageComponent } from "./pages/error-page/error-page.component";
@@ -19,7 +18,7 @@ import { ProductsResolver } from "./resolvers/products.resolver";
     AboutPageComponent,
     ProductListPageComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, RouterModule.forRoot(appRoutes)],
+  imports: [BrowserModule, RouterModule.forRoot(appRoutes)],
   providers: [ProductsResolver],
   bootstrap: [AppComponent]
 })
