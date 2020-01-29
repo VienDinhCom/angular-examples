@@ -1,0 +1,55 @@
+<h1>Contact</h1>
+
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <div class="input-group">
+      <input
+        id="title"
+        formControlName="title"
+        type="text"
+        class="form-control"
+        [ngClass]="{
+          'is-valid': contactForm.get('title').valid,
+          'is-invalid': !contactForm.get('title').valid && contactForm.touched
+        }"
+      />
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="suggestTitle()"
+        >
+          Suggest
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input
+      id="email"
+      formControlName="email"
+      class="form-control"
+      [ngClass]="{
+        'is-valid': contactForm.get('email').valid,
+        'is-invalid': !contactForm.get('email').valid && contactForm.touched
+      }"
+    />
+  </div>
+  <div class="form-group">
+    <label for="message">Message</label>
+    <textarea
+      formControlName="message"
+      class="form-control"
+      id="message"
+      [ngClass]="{
+        'is-valid': contactForm.get('message').valid,
+        'is-invalid': !contactForm.get('message').valid && contactForm.touched
+      }"
+    ></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!contactForm.valid">
+    Send
+  </button>
+</form>
