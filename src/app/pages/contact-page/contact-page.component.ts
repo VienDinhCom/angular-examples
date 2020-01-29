@@ -20,6 +20,8 @@ export class ContactPageComponent implements OnInit {
       }),
       issues: new FormArray([])
     });
+
+    this.contactForm.valueChanges.subscribe(console.log);
   }
 
   get issuesFormArray() {
@@ -39,6 +41,6 @@ export class ContactPageComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.contactForm.value);
+    console.log({ submit: this.contactForm.value });
   }
 }
