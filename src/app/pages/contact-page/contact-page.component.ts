@@ -13,14 +13,16 @@ export class ContactPageComponent implements OnInit {
 
   ngOnInit() {
     this.contactForm = new FormGroup({
-      title: new FormControl(null, Validators.required),
       email: new FormControl(null, [Validators.required, Validators.email]),
-      message: new FormControl(null, Validators.required)
+      info: new FormGroup({
+        title: new FormControl(null, Validators.required),
+        message: new FormControl(null, Validators.required)
+      })
     });
   }
 
   suggestTitle() {
-    this.contactForm.patchValue({ title: "Suggested Title" });
+    this.contactForm.patchValue({ info: { title: "Suggested Title" } });
   }
 
   onSubmit() {
