@@ -9,6 +9,7 @@ import { NgForm } from "@angular/forms";
 export class ContactPageComponent implements OnInit {
   @ViewChild("formRef", { static: false }) formRef: NgForm;
 
+  // Có thể dùng ([ngModel]) để vừa điền form vừa hiển thị
   formDefaultValue = {
     title: "",
     email: "test@me.com",
@@ -27,6 +28,6 @@ export class ContactPageComponent implements OnInit {
   onSubmit(formRef: NgForm) {
     // console.log(formRef);
     console.log(this.formRef.value);
-    this.formRef.resetForm();
+    this.formRef.reset();
   }
 }
