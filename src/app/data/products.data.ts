@@ -1,5 +1,3 @@
-import { generate } from "shortid";
-
 export interface Product {
   id?: string;
   name: string;
