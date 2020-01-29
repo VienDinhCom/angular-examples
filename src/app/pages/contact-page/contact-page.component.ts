@@ -21,6 +21,18 @@ export class ContactPageComponent implements OnInit {
       issues: new FormArray([])
     });
 
+    // Set Default Values
+    this.contactForm.setValue({
+      email: "test@me.com",
+      info: {
+        title: "Hello World!",
+        message:
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet maiores beatae dolores sunt natus quia numquam, omnis dignissimos, quos illo excepturi harum. Consequatur ratione quasi magnam, facilis cum veniam repellendus."
+      },
+      issues: []
+    });
+
+    // Get Form values
     this.contactForm.valueChanges.subscribe(console.log);
 
     // For Validation
@@ -32,6 +44,7 @@ export class ContactPageComponent implements OnInit {
   }
 
   suggestTitle() {
+    // Patch Values
     this.contactForm.patchValue({ info: { title: "Suggested Title" } });
   }
 
