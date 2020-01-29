@@ -1,0 +1,66 @@
+<h1>Contact</h1>
+
+<form (ngSubmit)="onSubmit(formRef)" #formRef="ngForm">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <div class="input-group">
+      <input
+        [ngModel]="formDefaultValue.title"
+        name="title"
+        #titleRef="ngModel"
+        required
+        type="text"
+        class="form-control"
+        [ngClass]="{
+          'is-valid': titleRef.valid,
+          'is-invalid': !titleRef.valid && titleRef.touched
+        }"
+        id="title"
+      />
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="suggestTitle()"
+        >
+          Suggest
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input
+      [ngModel]="formDefaultValue.email"
+      name="email"
+      email
+      required
+      #emailRef="ngModel"
+      type="email"
+      class="form-control"
+      [ngClass]="{
+        'is-valid': emailRef.valid,
+        'is-invalid': !emailRef.valid && emailRef.touched
+      }"
+      id="email"
+    />
+  </div>
+  <div class="form-group">
+    <label for="message">Message</label>
+    <textarea
+      [ngModel]="formDefaultValue.messsage"
+      name="message"
+      #messageRef="ngModel"
+      required
+      class="form-control"
+      [ngClass]="{
+        'is-valid': messageRef.valid,
+        'is-invalid': !messageRef.valid && messageRef.touched
+      }"
+      id="message"
+    ></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!formRef.valid">
+    Send
+  </button>
+</form>
