@@ -1,7 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 
-import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HomePageComponent } from "./pages/home-page/home-page.component";
 import { ErrorPageComponent } from "./pages/error-page/error-page.component";
@@ -20,7 +19,7 @@ import { ProductDetailPageComponent } from "./pages/product-pages/product-detail
     ProductListPageComponent,
     ProductDetailPageComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, RouterModule.forRoot(appRoutes)],
+  imports: [BrowserModule, RouterModule.forRoot(appRoutes)],
   providers: [],
   bootstrap: [AppComponent]
 })
