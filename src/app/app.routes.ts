@@ -1,20 +1,13 @@
 import { Routes } from "@angular/router";
-import { rootPageRoutes } from "./root-pages/root-pages.routes";
 
 export const appRoutes: Routes = [
   {
     path: "",
-    loadChildren: () =>
-      import("./root-pages/root-pages.module").then(
-        ({ RootPagesModule }) => RootPagesModule
-      )
+    loadChildren: () => import("./home/home.module").then(m => m.HomeModule)
   },
   {
-    path: "app",
-    loadChildren: () =>
-      import("./app-pages/app-pages.module").then(
-        ({ AppPagesModule }) => AppPagesModule
-      )
+    path: "admin",
+    loadChildren: () => import("./admin/admin.module").then(m => m.AdminModule)
   },
   {
     path: "",
