@@ -61,6 +61,30 @@
     </div>
   </div>
 
+  <div formGroupName="issues" class="alert alert-info">
+    <h3>Issues</h3>
+
+    <div
+      class="form-group"
+      *ngFor="let issueControl of issuesFormArray.controls; let i = index"
+    >
+      <div class="form-group">
+        <input
+          [formControlName]="i"
+          class="form-control"
+          [ngClass]="{
+            'is-valid': issueControl.valid,
+            'is-invalid': !issueControl.valid && issueControl.touched
+          }"
+        />
+      </div>
+    </div>
+
+    <button class="btn btn-small btn-primary" (click)="addIssue($event)">
+      Add
+    </button>
+  </div>
+
   <button type="submit" class="btn btn-primary" [disabled]="!contactForm.valid">
     Send
   </button>
