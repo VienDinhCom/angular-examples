@@ -1,0 +1,17 @@
+<input
+  [(ngModel)]="query"
+  type="text"
+  class="form-control"
+  placeholder="Search..."
+/>
+
+<hr />
+
+<ul class="list-group">
+  <li
+    *ngFor="let product of products | filterBy: ['name']:query"
+    class="list-group-item"
+  >
+    {{ product.name }}
+  </li>
+</ul>
