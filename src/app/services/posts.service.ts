@@ -9,7 +9,7 @@ export class PostsService {
   constructor(private http: HttpClient) {}
 
   fetch() {
-    return this.http.get<Post[]>("http://localhost:3000/posts", {
+    return this.http.get<Post[]>("/posts", {
       headers: new HttpHeaders({ authorization: "secret" }),
       params: new HttpParams().set("query", "hello")
     });
