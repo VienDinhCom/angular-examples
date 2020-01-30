@@ -1,7 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { PostsService } from "src/app/services/posts.service";
-import { throwError } from "rxjs";
-import { catchError, map } from "rxjs/operators";
 import { Post } from "../../models/post.model";
 
 @Component({
@@ -17,19 +15,17 @@ export class PostListPageComponent implements OnInit {
   constructor(private postsService: PostsService) {}
 
   ngOnInit() {
-    this.postsService
-      .fetch()
-      .pipe(
-        catchError(error => {
-          this.loading = false;
-          this.error = error;
-          return throwError(error);
-        })
-      )
-      .subscribe(posts => {
+    this.postsService.fetch().subscribe(
+      posts => {
         this.loading = false;
         this.posts = posts;
         this.error = null;
-      });
+      },
+      error => {
+        this.loading = false;
+        this.error = error;
+        throw error;
+      }
+    );
   }
 }
