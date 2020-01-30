@@ -1,5 +1,13 @@
 <h1>Posts</h1>
 
-<ul *ngIf="posts$ | async as posts" class="list-group">
-  <li *ngFor="let post of posts" class="list-group-item">{{ post }}</li>
+<div *ngIf="loading">
+  Loading ...
+</div>
+
+<div *ngIf="error" class="alert alert-danger" role="alert">
+  {{ error.message }}
+</div>
+
+<ul class="list-group">
+  <li *ngFor="let post of posts" class="list-group-item">{{ post.title }}</li>
 </ul>
