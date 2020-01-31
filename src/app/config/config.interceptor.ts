@@ -8,6 +8,8 @@ import { AuthService } from "../services/auth.service";
 
 // https://angular-academy.com/angular-jwt/
 
+const API_KEY = "AIzaSyC_RmXfIE444YaggT8pHaIpVdqwiDKoDm4";
+
 @Injectable()
 export class ConfigInterceptor implements HttpInterceptor {
   constructor(private authService: AuthService) {}
@@ -15,7 +17,7 @@ export class ConfigInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler) {
     const nextRequest = request.clone({
       setParams: {
-        key: "AIzaSyC_RmXfIE444YaggT8pHaIpVdqwiDKoDm4"
+        key: API_KEY
       }
     });
 
