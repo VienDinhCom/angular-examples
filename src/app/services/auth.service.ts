@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { map } from "rxjs/operators";
 import { Tokens } from "../models/tokens.model";
 
 const ID_TOKEN = "ID_TOKEN";
@@ -40,14 +41,26 @@ export class AuthService {
     };
   }
 
-  refreshToken(refreshToken) {
+  refreshToken() {
     const url = "https://securetoken.googleapis.com/v1/token";
+    const { refreshToken } = this.getTokens();
 
-    this.http
+    return this.http
       .post<Tokens>(url, {
         grant_type: "refresh_token",
         refresh_token: refreshToken
       })
-      .subscribe(this.setTokens);
+      .pipe(
+        map(({ id_token, refresh_token }: any) => {
+          const tokens = {
+            idToken: id_token,
+            refreshToken: refresh_token
+          };
+
+          this.setTokens(tokens);
+
+          return tokens;
+        })
+      );
   }
 }
