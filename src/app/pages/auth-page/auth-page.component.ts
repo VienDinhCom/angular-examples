@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { AuthService } from "src/app/auth/auth.service";
 
 @Component({
   selector: "app-auth-page",
@@ -11,7 +12,7 @@ export class AuthPageComponent implements OnInit {
   isLoginPage: boolean = true;
   authForm: FormGroup;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private authService: AuthService) {
     this.isLoginPage = this.route.snapshot.data.isLoginPage;
   }
 
@@ -23,6 +24,12 @@ export class AuthPageComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.authForm.valid);
+    const { email, password } = this.authForm.value;
+
+    if (this.isLoginPage) {
+      this.authService.login(email, password);
+    } else {
+      this.authService.register(email, password);
+    }
   }
 }
