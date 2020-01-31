@@ -4,12 +4,12 @@ import {
   HttpHandler,
   HttpInterceptor
 } from "@angular/common/http";
-import { AuthService } from "./auth.service";
+import { AuthService } from "../services/auth.service";
 
 // https://angular-academy.com/angular-jwt/
 
 @Injectable()
-export class AuthInterceptor implements HttpInterceptor {
+export class FirebaseInterceptor implements HttpInterceptor {
   constructor(private authService: AuthService) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler) {

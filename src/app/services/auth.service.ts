@@ -51,11 +51,4 @@ export class AuthService {
       })
       .subscribe(this.setTokens);
   }
-
-  getUser() {
-    const url = `https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=${API_KEY}`;
-    const { idToken } = this.getTokens();
-
-    return this.http.post<any>(url, { idToken });
-  }
 }

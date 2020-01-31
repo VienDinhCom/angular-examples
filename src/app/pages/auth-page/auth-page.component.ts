@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { AuthService } from "src/app/auth/auth.service";
+import { AuthService } from "../../services/auth.service";
 
 @Component({
   selector: "app-auth-page",
