@@ -15,7 +15,7 @@ export class AuthService {
 
     this.http
       .post<User>(url, { email, password, returnSecureToken: true })
-      .subscribe(this.handleAuth);
+      .subscribe(this.setToken);
   }
 
   login(email: string, password: string) {
@@ -23,25 +23,36 @@ export class AuthService {
 
     this.http
       .post<User>(url, { email, password, returnSecureToken: true })
-      .subscribe(this.handleAuth);
+      .subscribe(this.setToken);
   }
 
-  handleAuth(user: User) {
+  setToken(user: User) {
     localStorage.setItem("user", JSON.stringify(user));
   }
 
-  getIdToken() {
+  getToken(): User {
     try {
-      const { idToken }: User = JSON.parse(localStorage.getItem("user"));
-      return idToken;
+      return JSON.parse(localStorage.getItem("user"));
     } catch (error) {
       return null;
     }
   }
 
+  refreshToken() {
+    const url = `https://securetoken.googleapis.com/v1/token?key=${API_KEY}`;
+    const { refreshToken } = this.getToken();
+
+    this.http
+      .post<User>(url, {
+        grant_type: "refresh_token",
+        refresh_token: refreshToken
+      })
+      .subscribe(this.setToken);
+  }
+
   getUser() {
     const url = `https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=${API_KEY}`;
-    const idToken = this.getIdToken();
+    const { idToken } = this.getToken();
 
     return this.http.post<any>(url, { idToken });
   }
