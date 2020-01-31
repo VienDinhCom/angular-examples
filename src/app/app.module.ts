@@ -3,7 +3,7 @@ import { RouterModule } from "@angular/router";
 import { NgModule } from "@angular/core";
 import { ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
-import { FirebaseInterceptor } from "./config/firebase.interceptor";
+import { ConfigInterceptor } from "./config/config.interceptor";
 
 import { appRoutes } from "./app.routes";
 
@@ -32,7 +32,7 @@ import { MePageComponent } from "./pages/me-page/me-page.component";
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: FirebaseInterceptor,
+      useClass: ConfigInterceptor,
       multi: true
     }
   ],

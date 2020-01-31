@@ -2,8 +2,6 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Tokens } from "../models/tokens.model";
 
-const API_KEY = "AIzaSyC_RmXfIE444YaggT8pHaIpVdqwiDKoDm4";
-
 const ID_TOKEN = "ID_TOKEN";
 const REFRESH_TOKEN = "REFRESH_TOKEN";
 
@@ -14,7 +12,7 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   register(email: string, password: string) {
-    const url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${API_KEY}`;
+    const url = "https://identitytoolkit.googleapis.com/v1/accounts:signUp";
 
     this.http
       .post<Tokens>(url, { email, password, returnSecureToken: true })
@@ -22,7 +20,8 @@ export class AuthService {
   }
 
   login(email: string, password: string) {
-    const url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${API_KEY}`;
+    const url =
+      "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword";
 
     this.http
       .post<Tokens>(url, { email, password, returnSecureToken: true })
@@ -42,7 +41,7 @@ export class AuthService {
   }
 
   refreshToken(refreshToken) {
-    const url = `https://securetoken.googleapis.com/v1/token?key=${API_KEY}`;
+    const url = "https://securetoken.googleapis.com/v1/token";
 
     this.http
       .post<Tokens>(url, {

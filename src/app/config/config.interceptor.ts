@@ -9,10 +9,16 @@ import { AuthService } from "../services/auth.service";
 // https://angular-academy.com/angular-jwt/
 
 @Injectable()
-export class FirebaseInterceptor implements HttpInterceptor {
+export class ConfigInterceptor implements HttpInterceptor {
   constructor(private authService: AuthService) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler) {
-    return next.handle(request);
+    const nextRequest = request.clone({
+      setParams: {
+        key: "AIzaSyC_RmXfIE444YaggT8pHaIpVdqwiDKoDm4"
+      }
+    });
+
+    return next.handle(nextRequest);
   }
 }
