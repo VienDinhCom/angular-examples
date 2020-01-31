@@ -4,6 +4,7 @@ export interface User {
   email: string;
   refreshToken: string;
   expiresIn: string;
+  expiryDate: Date;
   localId: string;
   registered?: boolean;
 }

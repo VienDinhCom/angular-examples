@@ -1,8 +1,11 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { User } from "../models/user.model";
+import { Tokens } from "../models/tokens.model";
 
 const API_KEY = "AIzaSyC_RmXfIE444YaggT8pHaIpVdqwiDKoDm4";
+
+const ID_TOKEN = "ID_TOKEN";
+const REFRESH_TOKEN = "REFRESH_TOKEN";
 
 @Injectable({
   providedIn: "root"
@@ -14,45 +17,44 @@ export class AuthService {
     const url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${API_KEY}`;
 
     this.http
-      .post<User>(url, { email, password, returnSecureToken: true })
-      .subscribe(this.setToken);
+      .post<Tokens>(url, { email, password, returnSecureToken: true })
+      .subscribe(this.setTokens);
   }
 
   login(email: string, password: string) {
     const url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${API_KEY}`;
 
     this.http
-      .post<User>(url, { email, password, returnSecureToken: true })
-      .subscribe(this.setToken);
+      .post<Tokens>(url, { email, password, returnSecureToken: true })
+      .subscribe(this.setTokens);
   }
 
-  setToken(user: User) {
-    localStorage.setItem("user", JSON.stringify(user));
+  setTokens({ idToken, refreshToken }: Tokens) {
+    localStorage.setItem(ID_TOKEN, idToken);
+    localStorage.setItem(REFRESH_TOKEN, refreshToken);
   }
 
-  getToken(): User {
-    try {
-      return JSON.parse(localStorage.getItem("user"));
-    } catch (error) {
-      return null;
-    }
+  getTokens(): Tokens {
+    return {
+      idToken: localStorage.getItem(ID_TOKEN),
+      refreshToken: localStorage.getItem(REFRESH_TOKEN)
+    };
   }
 
-  refreshToken() {
+  refreshToken(refreshToken) {
     const url = `https://securetoken.googleapis.com/v1/token?key=${API_KEY}`;
-    const { refreshToken } = this.getToken();
 
     this.http
-      .post<User>(url, {
+      .post<Tokens>(url, {
         grant_type: "refresh_token",
         refresh_token: refreshToken
       })
-      .subscribe(this.setToken);
+      .subscribe(this.setTokens);
   }
 
   getUser() {
     const url = `https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=${API_KEY}`;
-    const { idToken } = this.getToken();
+    const { idToken } = this.getTokens();
 
     return this.http.post<any>(url, { idToken });
   }

@@ -6,22 +6,13 @@ import {
 } from "@angular/common/http";
 import { AuthService } from "./auth.service";
 
+// https://angular-academy.com/angular-jwt/
+
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
   constructor(private authService: AuthService) {}
 
-  intercept(req: HttpRequest<any>, next: HttpHandler) {
-    const { idToken, refreshToken } = this.authService.getToken();
-    let nextReq = req.clone();
-
-    if (idToken) {
-      nextReq = req.clone({
-        setParams: {
-          idToken
-        }
-      });
-    }
-
-    return next.handle(nextReq);
+  intercept(request: HttpRequest<any>, next: HttpHandler) {
+    return next.handle(request);
   }
 }
