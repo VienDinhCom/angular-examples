@@ -1,9 +1,9 @@
 import { Action, createReducer, on } from "@ngrx/store";
 import { counterActions } from "./counter.actions";
 
-export const counterFeatureKey = "counter";
+export type CounterState = number;
 
-export const initialState: number = 0;
+export const initialState: CounterState = 0;
 
 export const counterReducer = createReducer(
   initialState,
