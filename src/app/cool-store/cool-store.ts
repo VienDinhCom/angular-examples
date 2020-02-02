@@ -1,11 +1,11 @@
 import { BehaviorSubject } from "rxjs";
 import produce, { Draft } from "immer";
 
-export class BasicStore<State> {
-  private _state: State = null;
-  private state$ = new BehaviorSubject<State>(null);
+export class CoolStore<CoolState> {
+  private _state: CoolState = null;
+  private state$ = new BehaviorSubject<CoolState>(null);
 
-  constructor(initialState: State) {
+  constructor(initialState: CoolState) {
     this.setInitialState(initialState);
   }
 
@@ -17,12 +17,12 @@ export class BasicStore<State> {
     return produce(this._state, () => {});
   }
 
-  private setInitialState(initialState: State) {
+  private setInitialState(initialState: CoolState) {
     this._state = produce(initialState, () => {});
     this.emitState();
   }
 
-  setState(callback: (draft: Draft<State>) => void) {
+  setState(callback: (state: Draft<CoolState>) => void) {
     this._state = produce(this._state, callback);
     this.emitState();
   }
