@@ -1,15 +1,14 @@
-import { Injectable } from "@angular/core";
-import { Actions, createEffect, ofType, Effect } from "@ngrx/effects";
-import { EMPTY } from "rxjs";
-import { map, mergeMap, catchError } from "rxjs/operators";
 import { of } from "rxjs";
+import { Injectable } from "@angular/core";
+import { HttpErrorResponse } from "@angular/common/http";
+import { map, mergeMap, catchError } from "rxjs/operators";
+import { Actions, createEffect, ofType } from "@ngrx/effects";
 import {
   loadLaunches,
   loadLaunchesSuccess,
   loadLaunchesFailure
 } from "./launches.actions";
 import { LaunchesService } from "./launches.service";
-import { HttpErrorResponse } from "@angular/common/http";
 
 @Injectable()
 export class LaunchesEffects {
