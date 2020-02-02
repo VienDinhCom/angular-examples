@@ -1,6 +1,6 @@
-import { reducer, initialState } from './counter.reducer';
+import { reducer, initialState } from './launches.reducer';
 
-describe('Counter Reducer', () => {
+describe('Launches Reducer', () => {
   describe('an unknown action', () => {
     it('should return the previous state', () => {
       const action = {} as any;

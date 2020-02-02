@@ -1,19 +1,17 @@
-import { counterReducer, CounterState } from "./counter/counter.reducer";
-import * as counterActions from "./counter/counter.actions";
-import { counterSelectors } from "./counter/counter.selectors";
+import { launchesReducer } from "./launches/launches.reducer";
+import * as launchesActions from "./launches/launches.actions";
+import { LaunchesEffects } from "./launches/launches.effects";
 
-export interface State {
-  count: CounterState;
-}
+export interface State {}
 
 export const reducers = {
-  count: counterReducer
+  launches: launchesReducer
 };
 
 export const actions = {
-  counter: counterActions
+  launches: launchesActions
 };
 
-export const selectors = {
-  counter: counterSelectors
-};
+export const selectors = {};
+
+export const effects = [LaunchesEffects];
