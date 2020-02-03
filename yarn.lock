@@ -2317,10 +2317,10 @@ cookie@0.4.0:
   resolved "https://registry.yarnpkg.com/cookie/-/cookie-0.4.0.tgz#beb437e7022b3b6d49019d088665303ebe9c14ba"
   integrity sha512-+Hp8fLp57wnUSt0tY0tHEXh4voZRDnoIrZPqlo3DPiI4y9lwg/jqx+1Om94/W6ZaPDOUbnjOt/99w66zk+l1Xg==
 
-cool-store@^1.1.3:
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/cool-store/-/cool-store-1.1.3.tgz#e188d8df7158e06d5cebfdfb889596a0f0fae529"
-  integrity sha512-T1zYoWdwSYiQW18Gp4l8uPGyp8gN+tjbi8flLOGsRgPHx9GXDITw1VPX0Lzc2ciILLm/jqRkYGJKcQGJo+yunA==
+cool-store@^1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/cool-store/-/cool-store-1.1.4.tgz#cad1284f3051a0957ee7502d5764ffe6a96cace0"
+  integrity sha512-KaIEiCocTfcms11ZIV29d7ybuLncq4t7UO4kb7j3IE/WTGEHAzodxLfzKaEXG05L912XCydfgZr6pGI0YVxxjQ==
   dependencies:
     immer "^1.9.3"
 
