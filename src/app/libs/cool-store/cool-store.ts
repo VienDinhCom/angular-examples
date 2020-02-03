@@ -16,8 +16,8 @@ export class CoolStore<CoolState> {
     return produce(state, (draft: Draft<CoolState>) => {});
   }
 
-  set(callback: (state: Draft<CoolState>) => void) {
-    this._state = produce(this._state, callback);
+  set(recipe: (state: Draft<CoolState>) => void) {
+    this._state = produce(this._state, recipe);
     this.emit();
   }
 
