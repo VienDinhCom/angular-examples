@@ -5,14 +5,21 @@ import { Todo } from "../interfaces/todo";
 @Injectable({
   providedIn: "root"
 })
-export class TodosService extends CoolStore<Todo[]> {
-  constructor() {
-    const initialState = [];
-    super(initialState);
+export class TodosService {
+  todosStore = new CoolStore<Todo[]>([]);
+
+  constructor() {}
+
+  get todos() {
+    return this.todosStore.state;
+  }
+
+  get todosChanges() {
+    return this.todosStore.stateChanges;
   }
 
   addTodo(todo: Todo) {
-    this.set(state => {
+    this.todosStore.set(state => {
       state.push(todo);
     });
   }
