@@ -7,6 +7,13 @@ import { Todo } from "../interfaces/todo";
 })
 export class TodosService extends CoolStore<Todo[]> {
   constructor() {
-    super([]);
+    const initialState = [];
+    super(initialState);
+  }
+
+  getTodo() {
+    this.set(state => {
+      state.push({ name: "dfds" });
+    });
   }
 }

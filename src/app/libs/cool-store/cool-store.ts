@@ -16,13 +16,13 @@ export class CoolStore<CoolState> {
     return produce(state, (draft: Draft<CoolState>) => {});
   }
 
+  private emit() {
+    this.state$.next(this.state);
+  }
+
   set(recipe: (state: Draft<CoolState>) => void) {
     this._state = produce(this._state, recipe);
     this.emit();
-  }
-
-  get() {
-    return this.clone(this._state);
   }
 
   reset() {
@@ -30,11 +30,11 @@ export class CoolStore<CoolState> {
     this.emit();
   }
 
-  private emit() {
-    this.state$.next(this.get());
+  get state() {
+    return this.clone(this._state);
   }
 
-  get state() {
+  get stateChanges() {
     return this.state$.asObservable();
   }
 }
