@@ -1,1 +1,5 @@
-<p>todo-list works!</p>
+<ul class="list-group">
+  <li *ngFor="let todo of todos$ | async" class="list-group-item">
+    {{ todo.name }}
+  </li>
+</ul>
