@@ -1,4 +1,4 @@
-import { Draft } from "immer";
+import produce, { Draft } from "immer";
 import { CoolStore } from "./cool-store";
 
 interface AsyncCoolState<Data, Error> {
@@ -11,22 +11,22 @@ export class AsyncCoolStore<Data, Error> extends CoolStore<
   AsyncCoolState<Data, Error>
 > {
   setLoading() {
-    this.setState(state => {
+    this.set(state => {
       state.loading = true;
       state.error = null;
     });
   }
 
-  setData(data: Draft<Data>) {
-    this.setState(state => {
+  setData(callback: (data: Draft<Data>) => void) {
+    this.set(state => {
       state.loading = false;
       state.error = null;
-      state.data = data;
+      state.data = produce(state.data, callback);
     });
   }
 
   setError(error: Draft<Error>) {
-    this.setState(state => {
+    this.set(state => {
       state.loading = false;
       state.error = error;
     });

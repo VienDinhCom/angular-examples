@@ -22,7 +22,7 @@ export class TodoFormComponent implements OnInit {
     const { valid, value, reset } = this.todoForm;
 
     if (valid) {
-      this.todosService.setState(state => {
+      this.todosService.set(state => {
         state.push(value);
       });
 
