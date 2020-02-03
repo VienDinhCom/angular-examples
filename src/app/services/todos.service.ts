@@ -1,3 +1,4 @@
+import { generate } from "shortid";
 import { Injectable } from "@angular/core";
 import { CoolStore } from "cool-store";
 import { Todo } from "../interfaces/todo";
@@ -19,8 +20,17 @@ export class TodosService {
   }
 
   addTodo(todo: Todo) {
+    todo.id = generate();
     this.todosStore.set(state => {
       state.push(todo);
+      return state;
+    });
+  }
+
+  removeTodo(id: string) {
+    this.todosStore.set(state => {
+      state = state.filter(todo => todo.id !== id);
+      return state;
     });
   }
 }

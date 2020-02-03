@@ -12,4 +12,8 @@ export class TodoListComponent implements OnInit {
   constructor(private todosService: TodosService) {}
 
   ngOnInit() {}
+
+  removeTodo(id: string) {
+    this.todosService.removeTodo(id);
+  }
 }
