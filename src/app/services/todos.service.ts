@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { CoolStore } from "../libs/cool-store";
+import { CoolStore } from "cool-store";
 import { Todo } from "../interfaces/todo";
 
 @Injectable({
