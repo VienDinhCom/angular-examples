@@ -19,13 +19,10 @@ export class TodoFormComponent implements OnInit {
   }
 
   onSubmit() {
-    const { valid, value, reset } = this.todoForm;
+    const { valid, value } = this.todoForm;
 
     if (valid) {
-      this.todosService.set(state => {
-        state.push(value);
-      });
-
+      this.todosService.addTodo(value);
       this.todoForm.reset();
     } else {
       alert("Please enter a toto!");

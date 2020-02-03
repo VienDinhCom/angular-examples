@@ -11,9 +11,9 @@ export class TodosService extends CoolStore<Todo[]> {
     super(initialState);
   }
 
-  getTodo() {
+  addTodo(todo: Todo) {
     this.set(state => {
-      state.push({ name: "dfds" });
+      state.push(todo);
     });
   }
 }
