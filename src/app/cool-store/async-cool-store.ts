@@ -10,18 +10,14 @@ interface AsyncCoolState<Data, Error> {
 export class AsyncCoolStore<Data, Error> extends CoolStore<
   AsyncCoolState<Data, Error>
 > {
-  emitRequest(data?: Draft<Data>) {
+  setLoading() {
     this.setState(state => {
       state.loading = true;
       state.error = null;
-
-      if (data !== undefined) {
-        state.data = data;
-      }
     });
   }
 
-  emitSuccess(data: Draft<Data>) {
+  setData(data: Draft<Data>) {
     this.setState(state => {
       state.loading = false;
       state.error = null;
@@ -29,14 +25,10 @@ export class AsyncCoolStore<Data, Error> extends CoolStore<
     });
   }
 
-  emitFailure(error: Draft<Error>, data?: Draft<Data>) {
+  setError(error: Draft<Error>) {
     this.setState(state => {
       state.loading = false;
       state.error = error;
-
-      if (data !== undefined) {
-        state.data = data;
-      }
     });
   }
 }

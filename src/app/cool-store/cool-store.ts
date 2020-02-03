@@ -2,23 +2,19 @@ import { BehaviorSubject } from "rxjs";
 import produce, { Draft } from "immer";
 
 export class CoolStore<CoolState> {
+  private initialState: CoolState;
   private _state: CoolState = null;
   private state$ = new BehaviorSubject<CoolState>(null);
+  private clone = produce((state: Draft<CoolState>) => {});
 
   constructor(initialState: CoolState) {
-    this.setInitialState(initialState);
+    this._state = this.clone(initialState);
+    this.initialState = this.clone(initialState);
+    this.emitState();
   }
 
-  private emitState() {
-    this.state$.next(this.getState());
-  }
-
-  private getState() {
-    return produce(this._state, () => {});
-  }
-
-  private setInitialState(initialState: CoolState) {
-    this._state = produce(initialState, () => {});
+  resetState() {
+    this._state = this.clone(this.initialState);
     this.emitState();
   }
 
@@ -27,13 +23,15 @@ export class CoolStore<CoolState> {
     this.emitState();
   }
 
-  get snapshot() {
-    return {
-      state: this.getState()
-    };
+  getState() {
+    return produce(this._state, () => {});
   }
 
   get state() {
     return this.state$.asObservable();
+  }
+
+  private emitState() {
+    this.state$.next(this.getState());
   }
 }
