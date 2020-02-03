@@ -5,8 +5,8 @@ import { Todo } from "../interfaces/todo";
 @Injectable({
   providedIn: "root"
 })
-export class TodosService {
-  todos = new CoolStore<Todo[]>([]);
-
-  constructor() {}
+export class TodosService extends CoolStore<Todo[]> {
+  constructor() {
+    super([]);
+  }
 }
