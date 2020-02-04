@@ -12,11 +12,11 @@ export class TodosService {
   constructor() {}
 
   get todos() {
-    return this.todosStore.state;
+    return this.todosStore.get();
   }
 
   get todosChanges() {
-    return this.todosStore.stateChanges;
+    return this.todosStore.getChanges();
   }
 
   addTodo(todo: Todo) {
