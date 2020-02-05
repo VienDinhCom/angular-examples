@@ -22,7 +22,6 @@ export class TodosService {
   addTodo(todo: Todo) {
     this.todosStore.set(state => {
       state.push({ id: generate(), ...todo });
-      return state;
     });
   }
 
