@@ -2569,12 +2569,12 @@ cookie@0.4.0:
   resolved "https://registry.yarnpkg.com/cookie/-/cookie-0.4.0.tgz#beb437e7022b3b6d49019d088665303ebe9c14ba"
   integrity sha512-+Hp8fLp57wnUSt0tY0tHEXh4voZRDnoIrZPqlo3DPiI4y9lwg/jqx+1Om94/W6ZaPDOUbnjOt/99w66zk+l1Xg==
 
-cool-store@^1.4.4:
-  version "1.4.4"
-  resolved "https://registry.yarnpkg.com/cool-store/-/cool-store-1.4.4.tgz#cf6829e96beb26d19ed63b7d46e100a04b4b09e7"
-  integrity sha512-LnguJf7fEfy/+M5m+KCLYwCKWm7hQg6o2U1iDutXIBXW4B9fgPrLglBWbv6ziTVqBrhcJkTY+9/YNNpCT9M44w==
+cool-store@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/cool-store/-/cool-store-2.2.2.tgz#881019561d9782c8504d49aa479a67371a515dec"
+  integrity sha512-PyvSOgEER3F6U9MymcXwrYiUojMOENnNalEv3Z1B6hyxVF+L73g0dp+ru5UIHunma2CSJAG21QeEPMZogxYq+A==
   dependencies:
-    lodash.clonedeep "^4.5.0"
+    immer "^5.3.4"
 
 copy-concurrently@^1.0.0:
   version "1.0.5"
@@ -4302,6 +4302,11 @@ immer@^1.9.0:
   version "1.12.1"
   resolved "https://registry.yarnpkg.com/immer/-/immer-1.12.1.tgz#40c6e5b292c00560836c2993bda3a24379d466f5"
   integrity sha512-3fmKM6ovaqDt0CdC9daXpNi5x/YCYS3i4cwLdTVkhJdk5jrDXoPs7lCm3IqM3yhfSnz4tjjxbRG2CziQ7m8ztg==
+
+immer@^5.3.4:
+  version "5.3.4"
+  resolved "https://registry.yarnpkg.com/immer/-/immer-5.3.4.tgz#84edcfc0033e0db076a986fa9cdf28d035e97a67"
+  integrity sha512-2SmrJY1MviStaIM+nGWGQVrSxICx5QnzrgtDQgIv0vAka9urVnOR4ZGNFFXo04cnZUqQ2T1W7MjHVTVJoYujFg==
 
 import-cwd@^2.0.0:
   version "2.1.0"

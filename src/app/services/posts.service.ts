@@ -25,7 +25,7 @@ export class PostsService {
     this.http
       .get<Post[]>("https://jsonplaceholder.typicode.com/posts")
       .subscribe(
-        posts => this.postsStore.setData(() => posts),
+        posts => this.postsStore.setData(posts),
         error => this.postsStore.setError(error)
       );
   }
