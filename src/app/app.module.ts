@@ -27,7 +27,7 @@ console.log({ state: store.snapshot.state });
     ErrorPageComponent,
     AboutPageComponent
   ],
-  imports: [BrowserModule, RouterModule.forRoot(appRoutes)],
+  imports: [BrowserModule.withServerTransition({ appId: 'serverApp' }), RouterModule.forRoot(appRoutes)],
   providers: [],
   bootstrap: [AppComponent]
 })
