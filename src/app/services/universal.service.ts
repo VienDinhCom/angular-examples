@@ -25,6 +25,7 @@ export class UniversalService {
   get cookie() {
     return {
       set: cookieMaker.set,
+      remove: cookieMaker.remove,
       get: (name?: string) => {
         let cookie: Cookie;
 
