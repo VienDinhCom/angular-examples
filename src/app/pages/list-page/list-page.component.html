@@ -1,0 +1,22 @@
+<form [formGroup]="todoForm" (ngSubmit)="addTodo()">
+  <input
+    formControlName="name"
+    class="form-control"
+    type="text"
+    placeholder="Please enter a todo name!"
+  />
+</form>
+<br />
+
+<ul class="list-group">
+  <li
+    [@todoItem]
+    *ngFor="let todo of todos"
+    (click)="removeTodo(todo)"
+    class="list-group-item"
+  >
+    {{ todo.name }}
+  </li>
+</ul>
+
+<br />

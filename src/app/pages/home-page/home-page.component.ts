@@ -37,6 +37,7 @@ enum Shape {
       // transition(`${Shape.Square} <=> *`, animate(300))
       // transition(`* <=> *`, animate(300))
       transition(`* <=> *`, [
+        // Trong khi
         style({
           background: "orange"
         }),
