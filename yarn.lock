@@ -2614,10 +2614,10 @@ convert-source-map@^1.5.1, convert-source-map@^1.7.0:
   dependencies:
     safe-buffer "~5.1.1"
 
-cookie-maker@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/cookie-maker/-/cookie-maker-1.0.0.tgz#bd88997f4c68b755fafda2521557faec1f1aa8a4"
-  integrity sha512-Z1GTmQ2a6ieht47U2b8F0Xf0dFvZUCDOSSzko58muePOjDMkAVJvlCJzKLXGwsfUUlHldHyWhpfSFxvt3stmQQ==
+cookie-maker@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/cookie-maker/-/cookie-maker-1.1.0.tgz#a897452082b19e0b4407e5510e03fde304269e19"
+  integrity sha512-8GfYMr2D33NILXGXMwSdJVEd3sJcnaKnZ1PUHeEV3I7GFCG+Ipqkk3DN5/rtDO7E0gIMhAdIsSQLv/SyFwX8TQ==
   dependencies:
     "@types/cookie" "^0.3.3"
     "@types/js-cookie" "^2.2.4"
