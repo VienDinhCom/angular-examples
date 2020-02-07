@@ -1,4 +1,4 @@
-import { Request } from "express";
+import { Request, Response } from "express";
 import { cookieMaker, Cookie, CookieAttributes } from "cookie-maker";
 import { isPlatformBrowser, isPlatformServer } from "@angular/common";
 import { REQUEST, RESPONSE } from "@nguniversal/express-engine/tokens";
@@ -11,7 +11,7 @@ export class UniversalService {
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     @Optional() @Inject(REQUEST) private request: Request,
-    @Optional() @Inject(RESPONSE) private response: Request
+    @Optional() @Inject(RESPONSE) private response: Response
   ) {}
 
   get isBrowser() {
