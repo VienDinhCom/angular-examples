@@ -17,7 +17,7 @@ enum Shape {
   templateUrl: "./home-page.component.html",
   styleUrls: ["./home-page.component.scss"],
   animations: [
-    trigger("shapeAnimation", [
+    trigger("shape", [
       state(
         Shape.Square,
         style({
