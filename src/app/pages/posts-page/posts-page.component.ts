@@ -18,6 +18,8 @@ export class PostsPageComponent implements OnInit {
   ngOnInit() {
     this.postsService.getPosts();
 
+    this.universalService.cookie.set("hello", "world");
+
     console.log({
       isBrowser: this.universalService.isBrowser,
       isServer: this.universalService.isServer,
