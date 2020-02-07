@@ -1,4 +1,4 @@
-<div *ngIf="post$ | async as posts">
+<div *ngIf="posts$ | async as posts">
   <div *ngIf="posts.error" class="alert alert-danger" role="alert">
     {{ posts.error.message }}
   </div>

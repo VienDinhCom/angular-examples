@@ -8,7 +8,7 @@ import { UniversalService } from "src/app/services/universal.service";
   styleUrls: ["./posts-page.component.scss"]
 })
 export class PostsPageComponent implements OnInit {
-  post$ = this.postsService.posts;
+  posts$ = this.postsService.posts;
 
   constructor(
     private postsService: PostsService,
