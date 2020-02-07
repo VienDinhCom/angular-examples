@@ -19,9 +19,9 @@ export class PostsPageComponent implements OnInit {
     this.postsService.getPosts();
 
     console.log({
-      isBrowser: this.universalService.isBrowser(),
-      isServer: this.universalService.isServer(),
-      request: this.universalService.getRequest()
+      isBrowser: this.universalService.isBrowser,
+      isServer: this.universalService.isServer,
+      cookie: this.universalService.cookie.get()
     });
   }
 }
