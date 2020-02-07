@@ -8,15 +8,31 @@
 </form>
 <br />
 
-<ul class="list-group">
-  <li
-    [@todoItem]
-    *ngFor="let todo of todos"
-    (click)="removeTodo(todo)"
-    class="list-group-item"
-  >
-    {{ todo.name }}
-  </li>
-</ul>
+<div class="row">
+  <div class="col-6">
+    <ul class="list-group">
+      <li
+        [@todoItem1]
+        *ngFor="let todo of todos"
+        (click)="removeTodo(todo)"
+        class="list-group-item"
+      >
+        {{ todo.name }}
+      </li>
+    </ul>
+  </div>
+  <div class="col-6">
+    <ul class="list-group">
+      <li
+        [@todoItem2]
+        *ngFor="let todo of todos"
+        (click)="removeTodo(todo)"
+        class="list-group-item"
+      >
+        {{ todo.name }}
+      </li>
+    </ul>
+  </div>
+</div>
 
 <br />

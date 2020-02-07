@@ -1,1 +1,7 @@
-<div [@shape]="shape" class="shape" (click)="changeShape()"></div>
+<div
+  [@shape]="shape"
+  (@shape.start)="animationStarted($event)"
+  (@shape.done)="animationEnded($event)"
+  class="shape"
+  (click)="changeShape()"
+></div>

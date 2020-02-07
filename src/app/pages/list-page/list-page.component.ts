@@ -6,7 +6,9 @@ import {
   state,
   style,
   transition,
-  animate
+  animate,
+  keyframes,
+  group
 } from "@angular/animations";
 
 interface Todo {
@@ -19,7 +21,7 @@ interface Todo {
   templateUrl: "./list-page.component.html",
   styleUrls: ["./list-page.component.scss"],
   animations: [
-    trigger("todoItem", [
+    trigger("todoItem1", [
       state(
         "normal",
         style({
@@ -37,6 +39,13 @@ interface Todo {
         animate(300)
       ]),
       transition(`* => void`, [
+        // Sync - Chạy theo thứ tự
+        animate(
+          300,
+          style({
+            background: "red"
+          })
+        ),
         animate(
           300,
           style({
@@ -45,6 +54,55 @@ interface Todo {
             transform: "translateX(50px)"
           })
         )
+      ])
+    ]),
+    trigger("todoItem2", [
+      state(
+        "normal",
+        style({
+          // Bình thường
+          opacity: 1,
+          transform: "translateX(0)"
+        })
+      ),
+      transition(
+        `void => *`,
+        animate(
+          300,
+          keyframes([
+            style({
+              opacity: 0,
+              transform: "translateX(-50px)"
+            }),
+            style({
+              opacity: 1,
+              transform: "translateX(50px)"
+            }),
+            style({
+              opacity: 1,
+              transform: "translateX(0)"
+            })
+          ])
+        )
+      ),
+      transition(`* => void`, [
+        group([
+          // Async - Chạy cùng lúc
+          animate(
+            300,
+            style({
+              background: "red"
+            })
+          ),
+          animate(
+            300,
+            style({
+              // Cuối cùng
+              opacity: 0,
+              transform: "translateX(50px)"
+            })
+          )
+        ])
       ])
     ])
   ]

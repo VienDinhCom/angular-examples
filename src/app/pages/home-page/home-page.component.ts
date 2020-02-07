@@ -60,4 +60,12 @@ export class HomePageComponent implements OnInit {
       this.shape = Shape.Circle;
     }
   }
+
+  animationStarted(event: AnimationEvent) {
+    console.log({ started: event });
+  }
+
+  animationEnded(event: AnimationEvent) {
+    console.log({ ended: event });
+  }
 }
