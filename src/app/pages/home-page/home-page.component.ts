@@ -30,8 +30,10 @@ enum Shape {
           "border-radius": "50%"
         })
       ),
-      transition(`${Shape.Square} => ${Shape.Circle}`, animate(300)),
-      transition(`${Shape.Circle} => ${Shape.Square}`, animate(300))
+      // transition(`${Shape.Square} => ${Shape.Circle}`, animate(300)),
+      // transition(`${Shape.Circle} => ${Shape.Square}`, animate(300))
+      // transition(`${Shape.Square} <=> *`, animate(300))
+      transition(`* <=> *`, animate(300))
     ])
   ]
 })
