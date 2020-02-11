@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "angularfire-73523": {
+      "hosting": {
+        "app": [
+          "angularfire-73523"
+        ]
+      }
+    }
+  }
+}
