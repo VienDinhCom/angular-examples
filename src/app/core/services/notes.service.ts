@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore/firestore';
-import { NotesModule } from './notes.module';
 
 export interface Note {
   title: string;
@@ -8,7 +7,7 @@ export interface Note {
 }
 
 @Injectable({
-  providedIn: NotesModule,
+  providedIn: 'root',
 })
 export class NotesService {
   private collection = this.firestore.collection<Note>('notes');
@@ -19,14 +18,7 @@ export class NotesService {
     return this.collection.valueChanges();
   }
 
-  create(note: Note) {
+  add(note: Note) {
     this.collection.add(note);
-  }
-
-  update(id: string) {
-    this.collection.doc<Note>(id).set({
-      title: 'sdfds',
-      content: 'dfd',
-    });
   }
 }
