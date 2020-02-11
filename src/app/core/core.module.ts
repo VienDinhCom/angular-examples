@@ -11,7 +11,7 @@ import { environment } from '~/environments/environment';
     CommonModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAnalyticsModule,
-    AngularFirestoreModule,
+    AngularFirestoreModule.enablePersistence(),
   ],
   exports: [
     AngularFireModule,

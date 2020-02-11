@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore/firestore';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 export interface Note {
+  id?: string;
   title: string;
   content: string;
 }
@@ -14,11 +15,15 @@ export class NotesService {
 
   constructor(private firestore: AngularFirestore) {}
 
-  get notes() {
-    return this.collection.valueChanges();
-  }
-
   add(note: Note) {
     this.collection.add(note);
+  }
+
+  getAll() {
+    return this.collection.valueChanges({ idField: 'id' });
+  }
+
+  getOne(id: string) {
+    return this.collection.doc<Note>(id).valueChanges();
   }
 }

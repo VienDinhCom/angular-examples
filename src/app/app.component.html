@@ -19,4 +19,30 @@
 
   <br />
   <router-outlet></router-outlet>
+
+  <form [formGroup]="noteForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>Email address</label>
+      <input
+        formControlName="title"
+        type="text"
+        class="form-control"
+        placeholder="Enter title"
+      />
+    </div>
+    <div class="form-group">
+      <label>Email address</label>
+      <textarea
+        formControlName="content"
+        class="form-control"
+        placeholder="Enter content"
+      ></textarea>
+    </div>
+
+    <button class="btn btn-primary">Post</button>
+  </form>
+
+  <ul>
+    <li *ngFor="let note of notes$ | async">{{ note.title }}</li>
+  </ul>
 </div>
